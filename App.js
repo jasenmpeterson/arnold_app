@@ -11,8 +11,9 @@ const RouterWithRedux = connect()(Router);
 
 import Landing from './components/landing';
 import Home from './components/home';
+import Search from './components/search';
 
-const TabIcon = ({ selected, title}) => {
+const TabIcon = ({selected, title}) => {
   return (
       <Text style={{color: selected ? 'red' : 'black'}}>{title}</Text>
   )
@@ -28,9 +29,18 @@ export default class App extends Component {
               <Scene key="landing" component={Landing} title="Landing" initial={true}/>
               <Scene
                   key="rootTabBar"
-                  tabs={true}
-                  tabBarStyle={{backgroundColor: '#ffffff'}}>
+                  gestureEnabled={false}
+                  showLabel={false}
+                  tabs
+                  showIcon={true}
+                  tabBarPosition='bottom'
+                  swipeEnabled={false}
+                  activeTintColor='black'
+                  activeBackgroundColor='transparent'
+                  tabBarStyle={{backgroundColor:'white'}}
+                  >
                 <Scene key="home" component={Home} title="Home" icon={TabIcon} initial />
+                <Scene key="search" component={Search} title="Search" icon={TabIcon} />
               </Scene>
             </Scene>
           </RouterWithRedux>

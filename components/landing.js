@@ -16,13 +16,8 @@ class Landing extends Component {
   
   render () {
     
-    const {routes} = this.context;
-    
     return (
       <View style={styles.outerContainer}>
-        <Text>
-          The current scene is titled {this.props.routes.scene.title}.
-        </Text>
         <Text onPress={Actions.rootTabBar}>This is PageOne!</Text>
       </View>
     );
@@ -30,6 +25,7 @@ class Landing extends Component {
   }
   
 }
+
 
 const styles = StyleSheet.create({
   outerContainer: {
