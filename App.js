@@ -1,58 +1,92 @@
 import React, { Component } from 'react';
+import { Provider } from 'react-redux';
 import {
+  Platform,
   StyleSheet,
-  Text
+  Text,
+  View
 } from 'react-native';
-import { Router, Scene } from 'react-native-router-flux';
-import { connect, Provider } from 'react-redux';
+import {
+  Scene,
+  Router,
+  Actions,
+  Reducer,
+  ActionConst,
+  Overlay,
+  Tabs,
+  Modal,
+  Drawer,
+  Stack,
+  Lightbox,
+} from 'react-native-router-flux';
 import configureStore from './store/configureStore';
 const store = configureStore();
-const RouterWithRedux = connect()(Router);
-
 import Landing from './components/landing';
 import Home from './components/home';
-import Search from './components/search';
+import InsuranceClaims from './components/insuranceClaims';
+import CommercialClaims from './components/commercialClaims';
+import FAQ from './components/faq'
+import Contact from './components/contactUs';
+import BusinessOwner from './components/businessOwner'
+import HomeOwner from './components/homeOwner';
 
-const TabIcon = ({selected, title}) => {
-  return (
-      <Text style={{color: selected ? 'red' : 'black'}}>{title}</Text>
-  )
-}
-
+const reducerCreate = params => {
+  const defaultReducer = new Reducer(params);
+  return (state, action) => {
+    return defaultReducer(state, action);
+  };
+};
 
 export default class App extends Component {
   render() {
     return (
-        <Provider store={store}>
-          <RouterWithRedux>
-            <Scene key="root">
-              <Scene key="landing" component={Landing} title="Landing" initial={true}/>
+        <Router createReducer={reducerCreate}>
+          <Provider store={store}>
+            <View>
               <Scene
-                  key="rootTabBar"
-                  gestureEnabled={false}
-                  showLabel={false}
-                  tabs
-                  showIcon={true}
-                  tabBarPosition='bottom'
-                  swipeEnabled={false}
-                  activeTintColor='black'
-                  activeBackgroundColor='transparent'
-                  tabBarStyle={{backgroundColor:'white'}}
-                  >
-                <Scene key="home" component={Home} title="Home" icon={TabIcon} initial />
-                <Scene key="search" component={Search} title="Search" icon={TabIcon} />
-              </Scene>
-            </Scene>
-          </RouterWithRedux>
-        </Provider>
-    
+                  key="landing"
+                  component={Landing}
+                  title="Landing"
+                  initial
+              />
+              <Scene
+                  key="homeOwner"
+                  component={HomeOwner}
+                  title="Home Owner"
+              />
+              <Scene
+                  key="businessOwner"
+                  component={BusinessOwner}
+                  title="Business Owner"
+              />
+              <Scene
+                  key="insuranceClaims"
+                  component={InsuranceClaims}
+                  title="Insurance Claims"
+              />
+              <Scene
+                  key="commercialClaims"
+                  component={CommercialClaims}
+                  title="Commercial Claims"
+              />
+              <Scene
+                  key="home"
+                  component={Home}
+                  title="Home"
+              />
+              <Scene
+                  key="faq"
+                  component={FAQ}
+                  title="Common Questions"
+              />
+              <Scene
+                  key="contactUs"
+                  component={Contact}
+                  title="Contact Us"
+              />
+            </View>
+          </Provider>
+        </Router>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  tarBarStyle: {
-    backgroundColor: '#FFFFFF',
-    opacity: 0.5,
-  }
-})

@@ -4,27 +4,19 @@ import {
   Text,
   StyleSheet
 } from 'react-native';
+import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
-export default class Home extends Component {
-  _renderHome () {
-    if (Actions.currentScene === 'customNavBar1') {
-      return (
-          <View style={[styles.container]}>
-          <Text>Home</Text>
-          </View>
-      )
-    }
-  }
-  
-  render () {
-    return (
-        <View style={[styles.container]}>
-          { this._renderHome() }
-        </View>
-    )
-  }
+const BusinessOwner = () => {
+  return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>
+          Business Owner
+        </Text>
+      </View>
+  )
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -40,3 +32,5 @@ const styles = StyleSheet.create({
     color: '#ffffff',
   }
 })
+
+export default connect(({routes}) => ({routes}))(BusinessOwner)

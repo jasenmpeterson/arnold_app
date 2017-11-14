@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import {
-  View,
   Text,
-  StyleSheet
+  StyleSheet,
+  View
 } from 'react-native';
-import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
+import TabsView from './tabBar'
 
 class Landing extends Component {
-  
-  static propTypes = {
-    routes: PropTypes.object,
-  };
   
   render () {
     
     return (
       <View style={styles.outerContainer}>
-        <Text onPress={Actions.rootTabBar}>This is PageOne!</Text>
+        <Text onPress={Actions.homeOwner}>Home Owner</Text>
+        <Text onPress={Actions.businessOwner}>Business Owner</Text>
+        <TabsView/>
       </View>
     );
     
@@ -38,4 +35,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default connect(({routes}) => ({routes}))(Landing);
+module.exports = Landing
