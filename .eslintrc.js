@@ -10,5 +10,9 @@ module.exports = {
   },
   "plugins": [
     "react"
-  ]
+  ],
+  "globals": {
+    "fetch": false ,
+    "module": false
+  }
 };
