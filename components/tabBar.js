@@ -11,7 +11,7 @@ import { Actions } from 'react-native-router-flux';
 const propTypes = {
   name: PropTypes.string,
   sceneStyle: ViewPropTypes.style,
-  title: PropTypes.string,
+  title: PropTypes.string
 };
 
 const styles = StyleSheet.create({

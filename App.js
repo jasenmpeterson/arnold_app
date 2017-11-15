@@ -9,7 +9,6 @@ import {
   Reducer
 } from 'react-native-router-flux';
 import configureStore from './store/configureStore';
-const store = configureStore();
 import Landing from './components/landing';
 import Home from './components/home';
 import InsuranceClaims from './components/insuranceClaims';
@@ -26,6 +25,8 @@ const reducerCreate = params => {
   };
 };
 
+const store = configureStore();
+
 export default class App extends Component {
   render() {
     return (
@@ -37,41 +38,49 @@ export default class App extends Component {
                   component={Landing}
                   title="Landing"
                   initial
+                  hideNavBar={true}
               />
               <Scene
                   key="homeOwner"
                   component={HomeOwner}
                   title="Home Owner"
+                  hideNavBar={true}
               />
               <Scene
                   key="businessOwner"
                   component={BusinessOwner}
                   title="Business Owner"
+                  hideNavBar={true}
               />
               <Scene
                   key="insuranceClaims"
                   component={InsuranceClaims}
                   title="Insurance Claims"
+                  hideNavBar={true}
               />
               <Scene
                   key="commercialClaims"
                   component={CommercialClaims}
                   title="Commercial Claims"
+                  hideNavBar={true}
               />
               <Scene
                   key="home"
                   component={Home}
                   title="Home"
+                  hideNavBar={true}
               />
               <Scene
                   key="faq"
                   component={FAQ}
                   title="Common Questions"
+                  hideNavBar={true}
               />
               <Scene
                   key="contactUs"
                   component={Contact}
                   title="Contact Us"
+                  hideNavBar={true}
               />
             </View>
           </Provider>

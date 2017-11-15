@@ -11,7 +11,7 @@ export default function configureStore () {
       )
   )
   
-  const store = createStore(reducers, enhancer)
+  let store = createStore(reducers, enhancer)
   
   if (module.hot) {
     module.hot.accept( () => {

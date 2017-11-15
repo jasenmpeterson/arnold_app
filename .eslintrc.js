@@ -13,6 +13,7 @@ module.exports = {
   ],
   "globals": {
     "fetch": false ,
-    "module": false
+    "module": false,
+    "require": false
   }
 };
