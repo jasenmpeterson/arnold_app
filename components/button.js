@@ -38,7 +38,7 @@ class Button extends Component {
         )
     }
 }
-
+let sourceSans = 'Source Sans Pro Semibold';
 let style = StyleSheet.create({
     wrap: {
         width: '80%',
@@ -50,7 +50,9 @@ let style = StyleSheet.create({
       },
       buttonTextStyles: {
         color: 'white',
-        textAlign: 'center'  
+        textAlign: 'center',
+        fontFamily: sourceSans,
+        fontSize: 18
       },
       buttonBackgroundImageStyles: {
         resizeMode: 'cover',

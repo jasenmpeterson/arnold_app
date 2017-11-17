@@ -3,158 +3,169 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableHighlight,
-  Image,
   ScrollView
 } from 'react-native';
-import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import TabsView from './tabBar';
-import Loader from './loading';
-import ButtonSlim from './buttonSlim';
 import Header from './header'
 import SmallButton from './buttonSmall'
 
-export default class HomeOwner extends Component {
-  
-  constructor (props) {
+export default class InsuranceClaims extends Component {
+
+  constructor(props) {
     super(props)
     this.state = {
       isLoading: true
     }
   }
-  
-  _renderHome () {
+
+  _renderHome() {
     return (
       <View style={[styles.container]}>
-        <ScrollView>
-          <Header
-            subtitle={'HELPING HOMEOWNERS RECOVER AFTER'}
-            title={'HURRICANE HARVEY'}
-            image={require('../assets/images/homeOwner/homeOwner.jpg')} 
-          />
-          <View style={{flexDirection: 'row'}}>
+        <Header
+          subtitle={'HELPING HOMEOWNERS RECOVER AFTER'}
+          title={'HURRICANE HARVEY'}
+          image={require('../assets/images/homeOwner/homeOwner.jpg')}
+        />
+        <View style={{ alignItems: 'center', alignSelf: 'stretch', zIndex: 2, marginTop: -30 }}>
+          <View style={{ flexDirection: 'row', width: '80%', justifyContent: 'space-around', alignItems: 'center' }}>
             <SmallButton
               text={'GET ANSWERS'}
+              action={Actions.faq}
             />
             <SmallButton
               text={'NEED HELP TO FILE A CLAIM'}
+              action={Actions.contactUs}
             />
-          </View>  
+          </View>
+        </View>  
+        <ScrollView>
           <View style={styles.contentWrap}>
             <View style={styles.headerContent}>
-              <Text style={styles.h2}>COMMERCIAL</Text>
-              <Text style={styles.h1}>HARVEY{'\n'}INSURANCE CLAIMS</Text>
-            </View>
-            <View style={{marginBottom: 25, marginTop: 25}}>
-              <Text style={styles.p}>We Are Texans.</Text>
-              <Text style={styles.p}>Helping Each Other Is What We Do.</Text>
-            </View>  
-            <View>
-              <Text style={styles.p}>
-                In August 2017, Harvey made landfall off the Gulf Coast in
-                Texas. Within only a few days, the massive storm poured
-                over 9 trillion gallons of water on Houston and surrounding
-                areas, causing the reservoirs, river banks, and floodplains
-                and basins to fill to unprecedented levels. Tens of thousands
-                of homes were flooded or damaged; hundreds of thousands
-                of people were displaced. When people returned to their
-                homes, many of them were left with nothing—no homes, no
-                cars, few belongings of any kind. For most of them, their
-                expected insurance payment would be all that would
-                separate them from total ruin.
-                {'\n'}
-                {'\n'}
-                That's when the nightmare really started.
-                {'\n'}
-                {'\n'}
-              </Text>
-              <ButtonSlim
-                text={'HAVEN\'T SUBMITTED A CLAIM?'}
-                image={require('../assets/images/home/homeOwner.jpg')}
-                action={Actions.insuranceClaims}
-              />
-              <ButtonSlim
-                text={'HAVING TROUBLE WITH INSURANCE?'}
-                image={require('../assets/images/home/businessOwner.jpg')}  
-                action={Actions.deniedClaims}
-              />
-              <View style={styles.damnRelease}>
-                <Text style={styles.damnReleaseContent}>
-                  Affected by the {'\n'}Controlled Release{'\n'}of the Dams?
-                  {'\n'}
-                </Text> 
-                <Text style={styles.damnReleaseContent}>Releasing water from the reservoirs caused unthinkable damage. Let us stand up and fight for you.</Text>
+              <View style={styles.headerContent}>
+                <Text style={styles.h2}>COMMERCIAL</Text>
+                <Text style={styles.h1}>INSURANCE CLAIMS{'\n'}PROCESS</Text>
               </View>
             </View>
-          </View> 
-          <View style={styles.googleMap}>
-            <View style={styles.googleMapImage}>
-              <Image
-                source={require('../assets/images/google_map.jpg')}
-              />
+            <View style={{ marginBottom: 25, marginTop: 25 }}>
+              <Text style={styles.p}>First Step:</Text>
+              <Text style={styles.p}>Speak with an Insurance Claims Attorney</Text>
             </View>
-            <View style={styles.googleMapButtonContainer}>
-              <ButtonSlim
-                text={'LEARN OPTIONS AVAILABLE TO YOU'}
-                image={require('../assets/images/home/homeOwner.jpg')}
-                action={Actions.damnRelease}
-              />
-            </View>  
+            <View>
+              <Text style={styles.p}>
+                The process for filing a claim should be fairly
+              straightforward. First, you call an insurance company to
+              report damage to your home. They will either ask you to
+              fill out a report or will send an adjuster to assess the damage.
+              Once the adjuster finishes up, the insurance company makes
+              an offer to cover the damages up to your policy’s limit, and
+              you use the money to rebuild your house.{'\n'}{'\n'}
+
+                Even if your initial claim is denied, you’d have the chance to
+              submit an appeal where you can contest the reason for the
+              denial. Failing that, you’d be able to file a civil suit to claim
+              all the damages and expenses associated with the hurricane.{'\n'}{'\n'}
+
+                In an ideal world, this would be the insurance claims process:{'\n'}
+                - File the paperwork{'\n'}
+                - Receive a fair offer{'\n'}
+                - Use payout to rebuild{'\n'}{'\n'}
+
+                Unfortunately, here’s how it will usually go:{'\n'}{'\n'}
+
+                #1{'\n'}
+                THE ADJUSTER WILL LOW-BALL YOU{'\n'}
+                The largest insurance companies use a business model
+              that offers an initial settlement significantly lower than
+              what you actually deserve. The idea capitalizes on the fact
+              that you’re not an expert on property damage, so you’ll
+              take the settlement. The catch is that once you accept the
+              settlement, that’s it—you’ve waived your right to demand
+              more. On the other hand, if you ask for more, your claim
+              could be delayed. Insurance companies know most
+              residents don’t have the money or time to wait that long.{'\n'}{'\n'}
+
+                #2{'\n'}
+                YOU’LL FILE AN APPEAL{'\n'}
+                (THAT TAKES MONTHS TO RESOLVE){'\n'}
+                The letter of appeal is practically a legal document.{'\n'}{'\n'}
+
+                It needs to include an argument for why your claim was
+              wrongfully denied, as well as evidence. You may need to
+              hire independent inspectors, a public adjuster, or other
+              professionals to document the damage and provide an
+              alternative assessment.{'\n'}{'\n'}
+
+                #3{'\n'}
+                YOUR APPEAL WILL BE DENIED{'\n'}
+                (DESPITE YOUR BEST EFFORTS){'\n'}
+                The profits-first business model for large insurance
+              providers means making it as expensive as possible for
+              you to get full payment for your claim. If they’ve already
+              denied your claim once, they’re more likely to deny it a
+              second time—forcing you to sue them or give up. The
+              key here is to find an attorney who has experience with
+              insurance companies for Houston residents.{'\n'}{'\n'}
+
+                #4{'\n'}
+                YOU TAKE THEM TO COURT & LET THE JURY DECIDE{'\n'}
+                Despite their efforts to squash your claim, insurance
+              companies don’t want to go to court. They know that a jury
+              of your peers will have endured the same exact tragedies as
+              the rest of us. We’ve represented countless claims where
+              insurance companies played “courtroom chicken” with our
+              clients—only to settle days before trial was scheduled
+              to begin.{'\n'}{'\n'}
+
+                In the end, insurance companies are used to dealing with
+              regular people who are easy to intimidate.{'\n'}{'\n'}
+
+                Having an attorney on your side means you won’t scare
+              easy—and being Texans means we won’t quit until our
+              neighbors get what they need. Arnold & Itkin LLP has won
+              billions for our clients against the same insurance companies
+              you’re facing now. More importantly, we’re from Houston—
+              we’re facing Harvey’s damage same as you. It’s not right
+              what the insurance companies are doing to our communities
+              and friends, and we’re not going to let them take
+              advantage of us.{'\n'}{'\n'}
+
+                If you haven’t filed your claim yet, hiring us from the start
+              means you’ll have a stronger, more proactive process from
+              the get-go. Our team of expert adjusters, damage assessors,
+              and seasoned litigators pressure the insurance company to
+              handle your claim honestly and quickly—potentially
+              resulting in a much higher payout. Learn more about how
+              our firm can help you (and the worth of your claim) by
+              reaching out to us as soon as possible.
+              </Text>
+            </View>
           </View>
-          <View style={[styles.contentWrap, styles.contentWrapLast]}>
-            <Text style={styles.p}>Want to know what happens next?</Text>
-            <Text style={styles.p}>Let us guide you every step of the way.</Text>
-            <Text style={styles.p}>
-              {'\n'}
-              {'\n'}  
-              If you’re unsure of where to turn or what you need to know,
-              let our site be your guide. We’ve put together some of the
-              most important information about insurance claims—why
-              claims take so long, what you can do to expedite the process,
-              the tactics insurance companies use to pressure you into
-              accepting settlements, and what you can do to level the
-              playing field. Use our site as a resource: file claims, ask
-              questions, become informed. We’ll keep you updated on the
-              latest developments regarding insurance law while making
-              sure that you understand every aspect of what is going on
-              with your claim. When you’re ready to work with us, we’ll be
-              here—ready to hold your insurance company accountable
-              for the way they treat you.
-            </Text>
-            <View style={{width: '80%', marginTop: 25, alignSelf: 'center'}}>
-              <ButtonSlim
-                text={'UNDERSTANDING THE\nINSURANCE CLAIMS PROCESS'}
-                image={require('../assets/images/home/businessOwner.jpg')}  
-                action={Actions.insuranceClaims}
-              />
-            </View>    
-          </View> 
-          <View style={styles.tabs}>
-            <TabsView />
-          </View>  
         </ScrollView>
-    </View> 
+        <View style={styles.tabs}>
+          <TabsView />
+        </View>
+      </View>
     )
   }
-  
+
   render() {
-    
+
     return (
-        <View style={[styles.container]}>
-          { this._renderHome() }
-        </View>
+      <View style={[styles.container]}>
+        {this._renderHome()}
+      </View>
     )
   }
 }
 
 let headerColor = '#175492';
-let sourceSansLight = 'Source Sans Pro Light';
+let sourceSans = 'Source Sans Pro SemiBold';
 
 const styles = StyleSheet.create({
   h1: {
     color: headerColor,
-    fontFamily: sourceSansLight,
+    fontFamily: sourceSans,
     fontSize: 30,
     width: '100%',
     alignSelf: 'stretch',
@@ -162,7 +173,7 @@ const styles = StyleSheet.create({
   },
   h2: {
     color: headerColor,
-    fontFamily: sourceSansLight,
+    fontFamily: sourceSans,
     fontSize: 16,
     alignSelf: 'stretch',
     marginBottom: 5
@@ -170,9 +181,6 @@ const styles = StyleSheet.create({
   p: {
     fontSize: 14,
     color: '#95989A'
-  },
-  contentP: {
-    marginBottom: 75
   },
   headerContent: {
     paddingTop: 25
@@ -182,44 +190,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: 'white'
   },
-  content: {
-    zIndex: 2
-  },
   contentWrap: {
-    zIndex: 2,
     paddingLeft: 30,
-    paddingRight: 30
-  },
-  contentWrapLast: {
-    marginTop: 30,
-    marginBottom: 30
-  },
-  damnRelease: {
-    backgroundColor: '#343434',
-    padding: 20,
-    marginTop: 30
-  },
-  damnReleaseContent: {
-    color: 'white'
-  },
-  googleMap: {
-    height: 270,
-    alignSelf: 'stretch',
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    marginTop: -25,
-    zIndex: 1
-  },
-  googleMapImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '100%',
-    height: '100%',
-    flex: 1
-  },
-  googleMapButtonContainer: {
-    width: '80%'
+    paddingRight: 30,
+    paddingBottom: 30
   }
 })

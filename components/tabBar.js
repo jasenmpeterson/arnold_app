@@ -16,6 +16,7 @@ const propTypes = {
   title: PropTypes.string
 };
 
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
@@ -34,13 +35,15 @@ const styles = StyleSheet.create({
   },
   textStyles: {
     textAlign: 'center',
-    color: '#BFBFBF',
-    fontSize: 10
+    fontSize: 10,
+    color: '#BFBFBF'
   },
   homeButton: {
     flexGrow: 0,
     flexShrink: 10,
-    flexBasis: 50
+    flexBasis: 50,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   cellInner: {
     flex: 1,
@@ -52,6 +55,18 @@ const styles = StyleSheet.create({
   icon: {
     width: 22,
     height: 18
+  },
+  homeIcon: {
+    width: 40,
+    height: 38
+  },
+  faqIcon: {
+    width: 18,
+    height: 25
+  },
+  buildingIcon: {
+    width: 18,
+    height: 21
   }
 });
 
@@ -73,7 +88,7 @@ class TabView extends React.Component {
           <View style={styles.cellInner}>
             <TouchableHighlight onPress={Actions.commercialClaims}>
               <View style={styles.cellInner}>
-                <Image style={styles.icon} source={require('../assets/images/tabs/umbrella.png')} />    
+                <Image style={styles.buildingIcon} source={require('../assets/images/tabs/building.png')} />    
                 <Text style={styles.textStyles}>COMMERCIAL{'\n'}CLAIMS</Text>
               </View>  
             </TouchableHighlight>     
@@ -83,7 +98,7 @@ class TabView extends React.Component {
           <View style={styles.cellInner}>
             <TouchableHighlight onPress={Actions.home}>
               <View style={styles.cellInner}>
-                <Image style={styles.icon} source={require('../assets/images/tabs/umbrella.png')} /> 
+                <Image style={styles.homeIcon} source={require('../assets/images/tabs/logo.png')} /> 
               </View>     
             </TouchableHighlight>
           </View>  
@@ -92,7 +107,7 @@ class TabView extends React.Component {
           <View style={styles.cellInner}>
             <TouchableHighlight onPress={Actions.faq}>
               <View style={styles.cellInner}>
-                <Image style={styles.icon} source={require('../assets/images/tabs/umbrella.png')} />  
+                <Image style={styles.faqIcon} source={require('../assets/images/tabs/faq.png')} />  
                 <Text style={styles.textStyles}>FAQS</Text>
               </View>  
             </TouchableHighlight>    
@@ -102,7 +117,7 @@ class TabView extends React.Component {
           <View style={styles.cellInner}>
             <TouchableHighlight onPress={Actions.contactUs}>
               <View style={styles.cellInner}>
-                <Image style={styles.icon} source={require('../assets/images/tabs/umbrella.png')} />  
+                <Image style={styles.icon} source={require('../assets/images/tabs/phone.png')} />  
                 <Text style={styles.textStyles}>CONTACT {'\n'} US</Text>
               </View>  
             </TouchableHighlight>    

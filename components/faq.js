@@ -59,7 +59,7 @@ export default class FAQ extends Component {
   _renderHome () {
     return (
       <View style={[styles.container]}>
-        <ScrollView>
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
           <Header
             subtitle={'THINKING ABOUT FILING A CLAIM?\nGET ALL OF YOUR QUESTIONS ANSWERED HERE'}
             title={'COMMON QUESTIONS'}
@@ -70,10 +70,10 @@ export default class FAQ extends Component {
             renderHeader={this._renderHeader}
             renderContent={this._renderContent}
           />
-          <View style={styles.tabs}>
-            <TabsView />
-          </View>  
         </ScrollView>
+        <View style={styles.tabs}>
+          <TabsView />
+        </View>  
     </View> 
     )
   }
@@ -108,43 +108,43 @@ let headerColor = '#175492';
 let sourceSansLight = 'Source Sans Pro Light';
 
 const styles = StyleSheet.create({
-    h1: {
-        color: headerColor,
-        fontFamily: sourceSansLight,
-        fontSize: 30,
-        width: '100%',
-        alignSelf: 'stretch',
-        lineHeight: 30
-    },
-    h2: {
-        color: headerColor,
-        fontFamily: sourceSansLight,
-        fontSize: 16,
-        alignSelf: 'stretch',
-        marginBottom: 5
-    },
-    contentP: {
-        marginBottom: 75
-    },
-    headerContent: {
-        paddingTop: 25
-    },
-    container: {
-        flex: 1,
-        justifyContent: 'space-between',
-        backgroundColor: 'white'
-    },
-    tabs: {
-        justifyContent: 'flex-end'
-    },
-    accordion: {
-      paddingLeft: 30,
-      paddingRight: 30,
-      paddingTop: 20,
-      paddingBottom:20
-    },
-    header: {
-      borderBottomWidth: 1,
-      borderBottomColor: '#DDDDDD'
-    }
+
+  h1: {
+      color: headerColor,
+      fontFamily: sourceSansLight,
+      fontSize: 30,
+      width: '100%',
+      alignSelf: 'stretch',
+      lineHeight: 30
+  },
+  h2: {
+      color: headerColor,
+      fontFamily: sourceSansLight,
+      fontSize: 16,
+      alignSelf: 'stretch',
+      marginBottom: 5
+  },
+  contentP: {
+      marginBottom: 75
+  },
+  headerContent: {
+      paddingTop: 25
+  },
+  container: {
+    flex: 1,
+    backgroundColor: 'white'
+  },
+  accordion: {
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 20,
+    paddingBottom:20
+  },
+  headerText: {
+    color: '#175492', 
+  },
+  header: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#DDDDDD'
+  }
 })

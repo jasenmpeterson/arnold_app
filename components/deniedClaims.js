@@ -27,20 +27,24 @@ export default class DeniedClaims extends Component {
   _renderHome () {
     return (
       <View style={[styles.container]}>
-        <ScrollView>
-          <Header
-            subtitle={'HELPING HOMEOWNERS RECOVER AFTER'}
-            title={'HURRICANE HARVEY'}
-            image={require('../assets/images/homeOwner/homeOwner.jpg')} 
-          />
-          <View style={{flexDirection: 'row'}}>
+        <Header
+          subtitle={'HELPING HOMEOWNERS RECOVER AFTER'}
+          title={'HURRICANE HARVEY'}
+          image={require('../assets/images/homeOwner/homeOwner.jpg')}
+        />
+        <View style={{ alignItems: 'center', alignSelf: 'stretch', zIndex: 2, marginTop: -30 }}>
+          <View style={{ flexDirection: 'row', width: '80%', justifyContent: 'space-around', alignItems: 'center' }}>
             <SmallButton
               text={'GET ANSWERS'}
+              action={Actions.faq}
             />
             <SmallButton
               text={'NEED HELP TO FILE A CLAIM'}
+              action={Actions.contactUs}
             />
-          </View>  
+          </View>
+        </View>   
+        <ScrollView>
           <View style={styles.contentWrap}>
             <View style={styles.headerContent}>
             <View style={styles.headerContent}>
@@ -122,10 +126,10 @@ export default class DeniedClaims extends Component {
               </Text>
             </View>
           </View> 
-          <View style={styles.tabs}>
-            <TabsView />
-          </View>  
         </ScrollView>
+        <View style={styles.tabs}>
+          <TabsView />
+        </View>  
     </View> 
     )
   }
@@ -141,7 +145,7 @@ export default class DeniedClaims extends Component {
 }
 
 let headerColor = '#175492';
-let sourceSansLight = 'Source Sans Pro Light';
+let sourceSansLight = 'Source Sans Pro SemiBold';
 
 const styles = StyleSheet.create({
   h1: {

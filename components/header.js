@@ -30,8 +30,8 @@ class Header extends Component {
                             source={image}
                         />
                         <View style={style.buttonContentStyles}>
-                            <Text style={style.buttonTextStyles}>{subtitle}</Text>
-                            <Text style={style.buttonTextStyles}>{title}</Text>
+                            <Text style={style.h2}>{subtitle}</Text>
+                            <Text style={style.h1}>{title}</Text>
                         </View>       
                     </View>        
                 </View>        
@@ -49,9 +49,15 @@ let style = StyleSheet.create({
         backgroundColor: 'transparent',
         marginBottom: 15
       },
-      buttonTextStyles: {
-        color: 'red',
-        textAlign: 'center'
+      h1: {
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 30
+      },
+      h2: {
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 12
       },
       buttonBackgroundImageStyles: {
         resizeMode: 'cover',

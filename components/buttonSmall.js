@@ -30,8 +30,20 @@ class SmallButton extends Component {
     }
 }
 
+let sourceSans = 'Source Sans Pro Semibold';
+
 let style = StyleSheet.create({
-    
+    buttonContentStyles: {
+        borderWidth: 1,
+        borderColor: '#175492',
+        padding: 3,
+        backgroundColor: 'white'
+    },
+    buttonTextStyles: {
+        color: '#175492',
+        fontFamily: sourceSans,
+        textAlign: 'center'
+    }
 })
 
 export default SmallButton;

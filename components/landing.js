@@ -64,6 +64,7 @@ class Landing extends Component {
 
 let headerColor = '#FFFFFF';
 let sourceSansLight = 'Source Sans Pro Light';
+let sourceSans = 'Source Sans Pro Semibold';
 
 const styles = StyleSheet.create({
   loader: {
@@ -73,14 +74,14 @@ const styles = StyleSheet.create({
   },
   h1: {
     color: headerColor,
-    fontFamily: sourceSansLight,
+    fontFamily: sourceSans,
     fontSize: 30,
     textAlign: 'center',
     width: '100%'
   },
   h2: {
     color: headerColor,
-    fontFamily: sourceSansLight,
+    fontFamily: sourceSans,
     fontSize: 16
   },
   container: {

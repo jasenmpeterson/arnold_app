@@ -30,9 +30,11 @@ export default class DamnRelease extends Component {
           <View style={{flexDirection: 'row'}}>
             <SmallButton
               text={'GET ANSWERS'}
+              action={Actions.faq}
             />
             <SmallButton
               text={'NEED HELP TO FILE A CLAIM'}
+              action={Actions.contactUs}
             />
           </View>  
           <View style={styles.contentWrap}>

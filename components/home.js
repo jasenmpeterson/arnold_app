@@ -80,11 +80,12 @@ export default class Home extends Component {
 
 let headerColor = '#175492';
 let sourceSansLight = 'Source Sans Pro Light';
+let sourceSans = 'Source Sans Pro Semibold';
 
 const styles = StyleSheet.create({
   h1: {
     color: headerColor,
-    fontFamily: sourceSansLight,
+    fontFamily: sourceSans,
     fontSize: 30,
     width: '100%',
     textAlign: 'center',
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
   },
   h2: {
     color: headerColor,
-    fontFamily: sourceSansLight,
+    fontFamily: sourceSans,
     fontSize: 16,
     textAlign: 'center',
     alignSelf: 'stretch'

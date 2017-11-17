@@ -27,20 +27,24 @@ export default class HomeOwner extends Component {
   _renderHome () {
     return (
       <View style={[styles.container]}>
-        <ScrollView>
-          <Header
-            subtitle={'HELPING HOMEOWNERS RECOVER AFTER'}
-            title={'HURRICANE HARVEY'}
-            image={require('../assets/images/homeOwner/homeOwner.jpg')} 
-          />
-          <View style={{flexDirection: 'row'}}>
+        <Header
+          subtitle={'HELPING HOMEOWNERS RECOVER AFTER'}
+          title={'HURRICANE HARVEY'}
+          image={require('../assets/images/home/homeOwner.jpg')}
+        />
+        <View style={{ alignItems: 'center', alignSelf: 'stretch', zIndex: 2, marginTop: -30 }}>
+          <View style={{ flexDirection: 'row', width: '80%', justifyContent: 'space-around', alignItems: 'center' }}>
             <SmallButton
               text={'GET ANSWERS'}
+              action={Actions.faq}
             />
             <SmallButton
               text={'NEED HELP TO FILE A CLAIM'}
+              action={Actions.contactUs}
             />
-          </View>  
+          </View>
+        </View>    
+        <ScrollView>
           <View style={styles.contentWrap}>
             <View style={styles.headerContent}>
               <Text style={styles.h2}>RESIDENTIAL</Text>
@@ -80,10 +84,18 @@ export default class HomeOwner extends Component {
                 action={Actions.deniedClaims}
               />
               <View style={styles.damnRelease}>
-                <Text style={styles.damnReleaseContent}>
-                  Affected by the {'\n'}Controlled Release{'\n'}of the Dams?
-                  {'\n'}
-                </Text> 
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: 5}}>
+                  <Text style={styles.damnReleaseContent}>
+                    Affected by the {'\n'}Controlled Release{'\n'}of the Dams?
+                    {'\n'}
+                  </Text>
+                  <View style={styles.faqIcon}>
+                    <Image
+                      source={require('../assets/images/faq/icon.png')}
+                      style={{width: 52, height:58}}
+                    />
+                  </View>
+                </View>
                 <Text style={styles.damnReleaseContent}>Releasing water from the reservoirs caused unthinkable damage. Let us stand up and fight for you.</Text>
               </View>
             </View>
@@ -130,10 +142,10 @@ export default class HomeOwner extends Component {
               />
             </View>    
           </View> 
-          <View style={styles.tabs}>
-            <TabsView />
-          </View>  
         </ScrollView>
+        <View style={styles.tabs}>
+          <TabsView />
+        </View>  
     </View> 
     )
   }
@@ -149,12 +161,12 @@ export default class HomeOwner extends Component {
 }
 
 let headerColor = '#175492';
-let sourceSansLight = 'Source Sans Pro Light';
+let sourceSans= 'Source Sans Pro SemiBold';
 
 const styles = StyleSheet.create({
   h1: {
     color: headerColor,
-    fontFamily: sourceSansLight,
+    fontFamily: sourceSans,
     fontSize: 30,
     width: '100%',
     alignSelf: 'stretch',
@@ -162,7 +174,7 @@ const styles = StyleSheet.create({
   },
   h2: {
     color: headerColor,
-    fontFamily: sourceSansLight,
+    fontFamily: sourceSans,
     fontSize: 16,
     alignSelf: 'stretch',
     marginBottom: 5
@@ -187,8 +199,8 @@ const styles = StyleSheet.create({
   },
   contentWrap: {
     zIndex: 2,
-    paddingLeft: 30,
-    paddingRight: 30
+    paddingLeft: 45,
+    paddingRight: 45
   },
   contentWrapLast: {
     marginTop: 30,
