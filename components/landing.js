@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
+import Loader from './loading'
 
 class Landing extends Component {
   
@@ -36,20 +37,20 @@ class Landing extends Component {
   
     if (this.state.isLoading) {
       return (
-          <View><Text>Loading...</Text></View>
+        <Loader/>
       )
     }
     
     return (
-        <TouchableHighlight style={styles.container} onPress={Actions.home}>
-          <View style={styles.container}>
+      <TouchableHighlight style={styles.container} onPress={Actions.home}>
+        <View style={styles.container}>
             <View style={styles.backGroundContainer}>
               <Image
                   style={styles.backgroundImage}
                   source={require('../assets/images/splash/splash-page-background.jpg')}
               />
             </View>
-            <View style={styles.contentContainer}>
+          <View style={styles.contentContainer}>
               <Text style={styles.h2}>{this.state.dataSource.acf.splash_page_sub_title.toUpperCase()}</Text>
               <Text style={styles.h1}>{this.state.dataSource.acf.splash_page_title.toUpperCase()}</Text>
             </View>
@@ -65,6 +66,11 @@ let headerColor = '#FFFFFF';
 let sourceSansLight = 'Source Sans Pro Light';
 
 const styles = StyleSheet.create({
+  loader: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   h1: {
     color: headerColor,
     fontFamily: sourceSansLight,

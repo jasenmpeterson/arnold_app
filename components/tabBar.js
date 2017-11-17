@@ -4,7 +4,9 @@ import {
   StyleSheet,
   Text,
   View,
-  ViewPropTypes
+  ViewPropTypes,
+  Image,
+  TouchableHighlight
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
@@ -16,20 +18,40 @@ const propTypes = {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red',
+    backgroundColor: 'white',
     flexDirection: 'row',
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 30,
-    paddingBottom: 30
+    borderTopWidth: 1,
+    borderTopColor: '#EFEFEF',
+    height: 70
   },
   cells: {
     width: '20%',
-    display: 'flex',
+    flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
+    borderRightWidth: 1,
+    borderRightColor: '#EFEFEF'
   },
   textStyles: {
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#BFBFBF',
+    fontSize: 10
+  },
+  homeButton: {
+    flexGrow: 0,
+    flexShrink: 10,
+    flexBasis: 50
+  },
+  cellInner: {
+    flex: 1,
+    alignItems: 'center',
+    alignSelf: 'stretch',
+    paddingTop: 7,
+    paddingBottom: 7
+  },
+  icon: {
+    width: 22,
+    height: 18
   }
 });
 
@@ -38,19 +60,53 @@ class TabView extends React.Component {
     return (
       <View style={[styles.container, this.props.sceneStyle]}>
         <View style={styles.cells}>
-          <Text style={styles.textStyles} adjustsFontSizeToFit={true} numberOfLines={2} onPress={Actions.insuranceClaims}>Insurance Claims</Text>
+          <View style={styles.cellInner}>
+            <TouchableHighlight onPress={Actions.insuranceClaims}>
+              <View style={styles.cellInner}>
+                <Image style={styles.icon} source={require('../assets/images/tabs/umbrella.png')} />  
+                <Text style={styles.textStyles}>INSURANCE {'\n'} CLAIMS</Text>   
+              </View>   
+            </TouchableHighlight>    
+          </View>  
         </View>
         <View style={styles.cells}>
-          <Text style={styles.textStyles} adjustsFontSizeToFit={true} numberOfLines={2} onPress={Actions.commercialClaims}>Commercial Claims</Text>
+          <View style={styles.cellInner}>
+            <TouchableHighlight onPress={Actions.commercialClaims}>
+              <View style={styles.cellInner}>
+                <Image style={styles.icon} source={require('../assets/images/tabs/umbrella.png')} />    
+                <Text style={styles.textStyles}>COMMERCIAL{'\n'}CLAIMS</Text>
+              </View>  
+            </TouchableHighlight>     
+          </View>  
+        </View>
+        <View style={[styles.cells, styles.homeButton]}>
+          <View style={styles.cellInner}>
+            <TouchableHighlight onPress={Actions.home}>
+              <View style={styles.cellInner}>
+                <Image style={styles.icon} source={require('../assets/images/tabs/umbrella.png')} /> 
+              </View>     
+            </TouchableHighlight>
+          </View>  
         </View>
         <View style={styles.cells}>
-          <Text style={styles.textStyles} adjustsFontSizeToFit={true} numberOfLines={1} onPress={Actions.home}>Home</Text>
+          <View style={styles.cellInner}>
+            <TouchableHighlight onPress={Actions.faq}>
+              <View style={styles.cellInner}>
+                <Image style={styles.icon} source={require('../assets/images/tabs/umbrella.png')} />  
+                <Text style={styles.textStyles}>FAQS</Text>
+              </View>  
+            </TouchableHighlight>    
+          </View>  
         </View>
         <View style={styles.cells}>
-          <Text style={styles.textStyles} adjustsFontSizeToFit={true} numberOfLines={1} onPress={Actions.faq}>FAQS</Text>
-        </View>
-        <View style={styles.cells}>
-          <Text style={styles.textStyles} adjustsFontSizeToFit={true} onPress={Actions.contactUs}>Contact {'\n'} Us</Text>
+          <View style={styles.cellInner}>
+            <TouchableHighlight onPress={Actions.contactUs}>
+              <View style={styles.cellInner}>
+                <Image style={styles.icon} source={require('../assets/images/tabs/umbrella.png')} />  
+                <Text style={styles.textStyles}>CONTACT {'\n'} US</Text>
+              </View>  
+            </TouchableHighlight>    
+          </View>  
         </View>
       </View>
     )

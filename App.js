@@ -17,6 +17,8 @@ import FAQ from './components/faq'
 import Contact from './components/contactUs';
 import BusinessOwner from './components/businessOwner'
 import HomeOwner from './components/homeOwner';
+import DamnRelease from './components/damnRelease';
+import DeniedClaims from './components/deniedClaims'
 
 const reducerCreate = params => {
   const defaultReducer = new Reducer(params);
@@ -34,53 +36,65 @@ export default class App extends Component {
           <Provider store={store}>
             <View>
               <Scene
-                  key="landing"
-                  component={Landing}
-                  title="Landing"
-                  initial
-                  hideNavBar={true}
+              key="landing"
+              component={Landing}
+              title="Landing"
+              initial
+              hideNavBar={true}
               />
               <Scene
-                  key="homeOwner"
-                  component={HomeOwner}
-                  title="Home Owner"
-                  hideNavBar={true}
+              key="homeOwner"
+              component={HomeOwner}
+              title="Home Owner"
+              hideNavBar={true}
               />
               <Scene
-                  key="businessOwner"
-                  component={BusinessOwner}
-                  title="Business Owner"
-                  hideNavBar={true}
+              key="businessOwner"
+              component={BusinessOwner}
+              title="Business Owner"
+              hideNavBar={true}
               />
               <Scene
-                  key="insuranceClaims"
-                  component={InsuranceClaims}
-                  title="Insurance Claims"
-                  hideNavBar={true}
+              key="insuranceClaims"
+              component={InsuranceClaims}
+              title="Insurance Claims"
+              hideNavBar={true}
               />
               <Scene
-                  key="commercialClaims"
-                  component={CommercialClaims}
-                  title="Commercial Claims"
-                  hideNavBar={true}
+              key="commercialClaims"
+              component={CommercialClaims}
+              title="Commercial Claims"
+              hideNavBar={true}
+            />
+                <Scene
+                key="deniedClaims"
+                component={DeniedClaims}
+                title="Denied Claims"
+                hideNavBar={true}
               />
               <Scene
-                  key="home"
-                  component={Home}
-                  title="Home"
-                  hideNavBar={true}
+                key="damnRelease"
+                component={DamnRelease}
+                title="Damn Release"
+                hideNavBar={true}
               />
               <Scene
-                  key="faq"
-                  component={FAQ}
-                  title="Common Questions"
-                  hideNavBar={true}
+              key="home"
+              component={Home}
+              title="Home"
+              hideNavBar={true}
               />
               <Scene
-                  key="contactUs"
-                  component={Contact}
-                  title="Contact Us"
-                  hideNavBar={true}
+              key="faq"
+              component={FAQ}
+              title="Common Questions"
+              hideNavBar={true}
+              />
+              <Scene
+              key="contactUs"
+              component={Contact}
+              title="Contact Us"
+              hideNavBar={true}
               />
             </View>
           </Provider>

@@ -15,7 +15,7 @@ import ButtonSlim from './buttonSlim';
 import Header from './header'
 import SmallButton from './buttonSmall'
 
-export default class CommercialClaims extends Component {
+export default class DeniedClaims extends Component {
   
   constructor (props) {
     super(props)

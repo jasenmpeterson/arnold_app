@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
-  TouchableHighlight
+  StyleSheet
 } from 'react-native';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import TabsView from './tabBar';
+import Loader from './loading';
+import Button from './button';
 
 export default class Home extends Component {
   
@@ -34,26 +35,30 @@ export default class Home extends Component {
   
   _renderHome () {
     return (
-        <View style={[styles.container]}>
-          <View style={styles.contentWrap}>
-            <View style={styles.headerContent}>
-              <Text style={styles.h2}>{this.state.dataSource.acf.sub_title.toUpperCase()}</Text>
-              <Text style={styles.h1}>{this.state.dataSource.acf.title.toUpperCase()}</Text>
-            </View>
-            <View style={styles.content}>
-              <Text style={styles.p}>{this.state.dataSource.acf.content}</Text>
-              <TouchableHighlight style={styles.buttons}>
-                <View>
-                  <Text style={styles.buttonsText} onPress={Actions.homeOwner}>Home Owner</Text>
-                  <Text style={styles.buttonsText} onPress={Actions.businessOwner}>Business Owner</Text>
-                </View>
-              </TouchableHighlight>
-            </View>
+      <View style={[styles.container]}>
+        <View style={styles.contentWrap}>
+          <View style={styles.headerContent}>
+            <Text style={styles.h2}>{this.state.dataSource.acf.sub_title.toUpperCase()}</Text>
+            <Text style={styles.h1}>{this.state.dataSource.acf.title.toUpperCase()}</Text>
           </View>
-          <View style={styles.tabs}>
-            <TabsView/>
+          <View style={styles.content}>
+            <Text style={[styles.p, styles.contentP]}>{this.state.dataSource.acf.content}</Text>
+            <Button
+              text={'HOME OWNER'}
+              image={require('../assets/images/home/homeOwner.jpg')}
+              action={Actions.homeOwner}
+            />
+            <Button
+              text={'BUSINESS OWNER'}
+              image={require('../assets/images/home/businessOwner.jpg')}  
+              action={Actions.businessOwner}
+            />
           </View>
+        </View> 
+        <View style={styles.tabs}>
+          <TabsView />
         </View>
+      </View>
     )
   }
   
@@ -61,7 +66,7 @@ export default class Home extends Component {
     
     if (this.state.isLoading) {
       return (
-          <View><Text>Loading...</Text></View>
+          <Loader/>
       )
     }
     
@@ -95,34 +100,20 @@ const styles = StyleSheet.create({
   p: {
     fontSize: 14,
     color: '#95989A',
-    textAlign: 'left'
+    textAlign: 'center'
+  },
+  contentP: {
+    marginBottom: 75
+  },
+  headerContent: {
+    paddingTop: 75
   },
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    alignSelf: 'stretch'
-  },
-  contentWrap: {
-    flex: 1
-  },
-  headerContent: {
-    flex: 2,
-    justifyContent: 'flex-end'
+    backgroundColor: 'white'
   },
   content: {
-    flex: 2,
-    marginTop: 30
-  },
-  tabs: {
-    flex: 1,
-    justifyContent: 'flex-end'
-  },
-  buttons: {
-    backgroundColor: '#175492'
-  },
-  buttonsText: {
-    color: '#FFFFFF'
+    marginBottom: 75
   }
 })
