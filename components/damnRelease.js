@@ -25,18 +25,20 @@ export default class DamnRelease extends Component {
           <Header
             subtitle={'HELPING HOMEOWNERS RECOVER AFTER'}
             title={'HURRICANE HARVEY'}
-            image={require('../assets/images/homeOwner/homeOwner.jpg')} 
+            image={require('../assets/images/home/homeOwner.jpg')} 
           />
-          <View style={{flexDirection: 'row'}}>
-            <SmallButton
-              text={'GET ANSWERS'}
-              action={Actions.faq}
-            />
-            <SmallButton
-              text={'NEED HELP TO FILE A CLAIM'}
-              action={Actions.contactUs}
-            />
-          </View>  
+          <View style={{ alignItems: 'center', alignSelf: 'stretch', zIndex: 2, marginTop: -30 }}>
+            <View style={{ flexDirection: 'row', width: '80%', justifyContent: 'space-around', alignItems: 'center' }}>
+              <SmallButton
+                text={'GET ANSWERS'}
+                action={Actions.faq}
+              />
+              <SmallButton
+                text={'NEED HELP TO FILE A CLAIM'}
+                action={Actions.contactUs}
+              />
+            </View>
+          </View>
           <View style={styles.contentWrap}>
             <View style={styles.headerContent}>
               <Text style={styles.h2}>RESIDENTIAL</Text>
@@ -89,6 +91,7 @@ export default class DamnRelease extends Component {
           <View style={styles.googleMap}>
             <View style={styles.googleMapImage}>
               <Image
+                style={{ resizeMode: 'cover', width: '100%' }}    
                 source={require('../assets/images/google_map.jpg')}
               />
             </View>

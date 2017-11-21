@@ -25,7 +25,7 @@ export default class InsuranceClaims extends Component {
         <Header
           subtitle={'HELPING HOMEOWNERS RECOVER AFTER'}
           title={'HURRICANE HARVEY'}
-          image={require('../assets/images/homeOwner/homeOwner.jpg')}
+          image={require('../assets/images/home/businessOwner.jpg')}
         />
         <View style={{ alignItems: 'center', alignSelf: 'stretch', zIndex: 2, marginTop: -30 }}>
           <View style={{ flexDirection: 'row', width: '80%', justifyContent: 'space-around', alignItems: 'center' }}>

@@ -6,8 +6,10 @@ import {
 import {
   Scene,
   Router,
-  Reducer
+  Reducer,
+  Text
 } from 'react-native-router-flux';
+import OneSignal from 'react-native-onesignal';
 import configureStore from './store/configureStore';
 import Landing from './components/landing';
 import Home from './components/home';
@@ -30,6 +32,9 @@ const reducerCreate = params => {
 const store = configureStore();
 
 export default class App extends Component {
+  componentDidMount() {
+    OneSignal.configure({});
+  }
   render() {
     return (
         <Router createReducer={reducerCreate}>

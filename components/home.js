@@ -12,37 +12,16 @@ import Button from './button';
 
 export default class Home extends Component {
   
-  constructor (props) {
-    super(props)
-    this.state = {
-      isLoading: true
-    }
-  }
-  
-  componentDidMount () {
-    return axios.get('http://192.168.0.238:9999/wp-json/wp/v2/pages/11')
-        .then((response) => {
-          let ds = response;
-          this.setState({
-            isLoading: false,
-            dataSource: ds.data
-          });
-        })
-        .catch((error) => {
-          console.warn(error);
-        });
-  }
-  
   _renderHome () {
     return (
       <View style={[styles.container]}>
         <View style={styles.contentWrap}>
           <View style={styles.headerContent}>
-            <Text style={styles.h2}>{this.state.dataSource.acf.sub_title.toUpperCase()}</Text>
-            <Text style={styles.h1}>{this.state.dataSource.acf.title.toUpperCase()}</Text>
+            <Text style={styles.h2}>HELPING VICTIMS OF</Text>
+            <Text style={styles.h1}>HURRICANE HARVEY</Text>
           </View>
           <View style={styles.content}>
-            <Text style={[styles.p, styles.contentP]}>{this.state.dataSource.acf.content}</Text>
+            <Text style={[styles.p, styles.contentP]}>Who has been affected?</Text>
             <Button
               text={'HOME OWNER'}
               image={require('../assets/images/home/homeOwner.jpg')}
@@ -63,12 +42,6 @@ export default class Home extends Component {
   }
   
   render () {
-    
-    if (this.state.isLoading) {
-      return (
-          <Loader/>
-      )
-    }
     
     return (
         <View style={[styles.container]}>

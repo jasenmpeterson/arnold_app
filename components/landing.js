@@ -12,34 +12,8 @@ import Loader from './loading'
 
 class Landing extends Component {
   
-  constructor (props) {
-    super(props)
-    this.state = {
-      isLoading: true
-    }
-  }
-  
-  componentDidMount () {
-    return axios.get('http://192.168.0.238:9999/wp-json/acf/v3/options/options')
-        .then((response) => {
-          let ds = response;
-          this.setState({
-            isLoading: false,
-            dataSource: ds.data
-          });
-        })
-        .catch((error) => {
-          console.warn(error);
-        });
-  }
   
   render () {
-  
-    if (this.state.isLoading) {
-      return (
-        <Loader/>
-      )
-    }
     
     return (
       <TouchableHighlight style={styles.container} onPress={Actions.home}>
@@ -51,8 +25,8 @@ class Landing extends Component {
               />
             </View>
           <View style={styles.contentContainer}>
-              <Text style={styles.h2}>{this.state.dataSource.acf.splash_page_sub_title.toUpperCase()}</Text>
-              <Text style={styles.h1}>{this.state.dataSource.acf.splash_page_title.toUpperCase()}</Text>
+              <Text style={styles.h2}>HELPING VICTIMS OF</Text>
+              <Text style={styles.h1}>HURRICANE HARVEY</Text>
             </View>
           </View>
         </TouchableHighlight>
@@ -99,12 +73,13 @@ const styles = StyleSheet.create({
     left: 0,
     top: 0,
     width: '100%',
-    height: '100%'
+    height: '100%',
+    flex: 1
   },
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
-    width: 375,
+    width: '100%',
     height: 549
   }
 })

@@ -103,6 +103,7 @@ export default class HomeOwner extends Component {
           <View style={styles.googleMap}>
             <View style={styles.googleMapImage}>
               <Image
+                style={{resizeMode: 'cover', width: '100%'}}  
                 source={require('../assets/images/google_map.jpg')}
               />
             </View>

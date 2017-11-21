@@ -10,13 +10,6 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-const propTypes = {
-  name: PropTypes.string,
-  sceneStyle: ViewPropTypes.style,
-  title: PropTypes.string
-};
-
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
@@ -68,12 +61,19 @@ const styles = StyleSheet.create({
     width: 18,
     height: 21
   }
-});
+})
+
+const propTypes = {
+  name: PropTypes.string,
+  sceneStyle: ViewPropTypes.style,
+  title: PropTypes.string
+};
+  
 
 class TabView extends React.Component {
   render () {
     return (
-      <View style={[styles.container, this.props.sceneStyle]}>
+      <View style={[styles.container]}>
         <View style={styles.cells}>
           <View style={styles.cellInner}>
             <TouchableHighlight onPress={Actions.insuranceClaims}>
@@ -127,7 +127,5 @@ class TabView extends React.Component {
     )
   }
 }
-
 TabView.propTypes = propTypes;
-
 export default TabView;
